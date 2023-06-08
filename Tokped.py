@@ -23,7 +23,6 @@ for i in range(5):
      driver.execute_script("window.scrollBy(50, 0)")
      time.sleep(1)
      soup = BeautifulSoup(driver.page_source, 'html.parser')
-     #print(soup)
 
      for item in soup.findAll('a', class_= 'pcv3__info-content'):
           nama_produk = item.find(class_= 'prd_link-product-name').text
@@ -41,16 +40,6 @@ for i in range(5):
           data.append(
                (nama_produk, harga_produk, potongan_harga, normal, status, rating, total_penjualan)
           )
-
-     #     print(nama_produk)
-     #     print(harga_produk)
-     #     print(potongan_harga)
-     #     print(normal)
-     #     print(status)
-     #     print(penilaian)
-     #     print(total_penjualan)
-     #     print('=============================')
-
      df = pd.DataFrame(data, columns=['Nama Produk', 'Harga Produk', 'Potongan Harga', 'Harga Normal', 'Status Penanganan', 'Penilaian', 'Total Penjualan'])
      print (df)
 
